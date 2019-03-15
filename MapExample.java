@@ -23,19 +23,25 @@ public class MapExample {
     }
 
     public static void main(String[] args) {
-        int[] arr = new int[] { 1, 2, 3, 4, 5, 6, 11, 22, 33, 21, 43, 56, 78, 90 };
+        Random rand = new Random();
+        int rand_int = rand.nextInt(1000);
         Map<Integer, List<Integer>> map = new HashMap<>();
-        for (int i = 0; i < arr.length - 1; i++) {
-            int key = arr[i] % 3;
-            put(map, key, arr[i]);
+        List<Integer> arr = new ArrayList<Integer>();
+        for (int i = 0; i < 20; i++) {
+            rand_int = rand.nextInt(1000);
+            int key = rand_int % 3;
+            put(map, key, rand_int);
+
         }
         List<Integer> a = map.get(1); // print value based on key
 
         // iterate to the list of value stored in key
+        System.out.println("-----map[1] elements-----");
         for (int i = 0; i < a.size(); i++) {
-            System.out.print((a.get(i)) + " ");
+            System.out.print((a.get(i)) + "-");
         }
-
+        System.out.println("\n ");
+        System.out.println("-----all elements in map -----");
         // iterating entire map
         map.forEach((s, strings) -> {
             System.out.print(s + ": ");
